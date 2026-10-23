@@ -1,0 +1,19 @@
+# Segredos e configurações locais
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+secrets.*
+credentials.*
+
+# Sistema operacional e editores
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Dependências e pastas de build
+node_modules/
+dist/
+build/
