@@ -126,24 +126,31 @@ restoreAllDayAnswers();restoreDailyAnswers();updateStats();
    <p style="font-size:13px;color:var(--muted)">Continuação · aproximadamente 1min59s</p>
    <video id="almaBloco3" controls playsinline preload="metadata" style="width:100%;display:block;aspect-ratio:16/9;background:#13271e;border-radius:12px" aria-label="Reproduzir bloco 3 da meditação"><source src="alma-dia01-bloco03.mp4" type="video/mp4">O navegador não conseguiu exibir este vídeo.</video>
    <p id="almaVideoError3" role="status" style="display:none;color:#b95743;font-size:13px"></p>
+  </div>
+  <div class="card" style="margin-bottom:18px;padding:20px">
+   <div class="eyebrow">MEDITAÇÃO GUIADA · DIA 01 · BLOCO 4</div>
+   <h2 style="font:25px Georgia,serif;font-weight:400;margin:8px 0">Reconhecendo suas necessidades</h2>
+   <p style="font-size:13px;color:var(--muted)">Continuação · 2min26s</p>
+   <video id="almaBloco4" controls playsinline preload="metadata" style="width:100%;display:block;aspect-ratio:16/9;background:#13271e;border-radius:12px" aria-label="Reproduzir bloco 4 da meditação"><source src="alma-dia01-bloco04.mp4" type="video/mp4">O navegador não conseguiu exibir este vídeo.</video>
+   <p id="almaVideoError4" role="status" style="display:none;color:#b95743;font-size:13px"></p>
   </div>`;
   placeholder.replaceWith(holder);
   const oldNote=holder.nextElementSibling;
-  if(oldNote && oldNote.tagName==='P' && oldNote.textContent.includes('Prévia animada')) oldNote.textContent='Prévia em desenvolvimento · três blocos disponíveis (total aproximado 5min12s).';
-  for(let n=1;n<=3;n++){
+  if(oldNote && oldNote.tagName==='P' && oldNote.textContent.includes('Prévia animada')) oldNote.textContent='Prévia em desenvolvimento · quatro blocos disponíveis (total aproximado 7min38s).';
+  for(let n=1;n<=4;n++){
    const v=document.getElementById('almaBloco'+n), e=document.getElementById('almaVideoError'+n);
    v.addEventListener('error',()=>{e.style.display='block';e.textContent='Não foi possível carregar o Bloco '+n+'. Confira se o arquivo MP4 está na mesma pasta do HTML e extraído do ZIP.';});
   }
-  const players=[1,2,3].map(n=>document.getElementById('almaBloco'+n));
+  const players=[1,2,3,4].map(n=>document.getElementById('almaBloco'+n));
   players.forEach((player,index)=>player.addEventListener('play',()=>players.forEach((other,j)=>{if(j!==index)other.pause()})));
   const overview=document.querySelector('#page-inicio .audio-card');
   if(overview){
    overview.querySelector('.eyebrow').textContent='MEDITAÇÃO GUIADA · DIA 01';
    overview.querySelector('h3').textContent='O primeiro encontro consigo mesmo';
-   overview.querySelector('p').textContent='Assista aos três primeiros blocos da meditação com narração e música ambiente.';
+   overview.querySelector('p').textContent='Assista aos quatro primeiros blocos da meditação com narração e música ambiente.';
    const ctr=overview.querySelector('.audio-controls');
    if(ctr) ctr.innerHTML='<button class="button" onclick="go(\'dia1\');document.getElementById(\'almaBloco1\').scrollIntoView({behavior:\'smooth\',block:\'center\'})">▶ Assistir ao Dia 1 →</button>';
-   const note=overview.querySelector('small[style]');if(note)note.textContent='Três vídeos reais disponíveis · aproximadamente 5min12s no total.';
+   const note=overview.querySelector('small[style]');if(note)note.textContent='Quatro vídeos reais disponíveis · aproximadamente 7min38s no total.';
   }
 })();
 </script></body></html>
